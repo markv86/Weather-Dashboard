@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -12,6 +13,8 @@
     <!-- Font Awesome CSS Link -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"/>
 
+    <!-- Moment Library -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
 
     <title>Weather Dashboard</title>
 
@@ -23,18 +26,60 @@
                 <div class="container-fluid">
                   <a class="navbar-brand">Weather Dashboard</a>
                   <form class="d-flex">
-                    <input class="form-control me-2" type="search" placeholder="Zip Code" aria-label="Search">
+                    <input id="citySearch" class="form-control me-2" type="search" placeholder="City Search" aria-label="Search">
                     <button class="btn btn-outline" type="submit">Search</button>
                   </form>
                 </div>
               </nav>
     </section>
 
-    <!-- Sidebar for history tracking -->
-
-    <!-- Main body for weather info -->
+<!-- Weather Dashboard Main Body -->
+    <header class = "container-fluid text-center"> 
+        <h3>Weather Dashboard</h3>
+    </header>
     
+    <div class = "mainBodyContainer">
+        <div class = "row">
+            <!-- Sidebar for history tracking -->
+            <div class="clearfix">
+                <aside class="searchHistoryContainer" id="searchHistory">
+                <!--section for search history--> 
+                <button id="clearHistory" class="btn" type="button" >Clear history</button>
+                </aside>    
+            </div>    
+  
+            <!-- Current City Information -->
+            <div class="cityContainer">
+                <div class="clearfix">
+                    <div class="col-sm-12 float-right ml-2 border border-dark rounded" id="current-weather">
+                        <h3 class="cityInfo mb-1 mt-2 bolder" id="current-city"></h3>
+                        <p>Temperature:<span class="current" id="temperature"></span></p>
+                        <p>Humidity:<span class="current" id="humidity"></span></p> 
+                        <p>UV index:<span class="current"  id="uv-index"></span></p> 
+                        <p>Wind Speed:<span class="current" id="wind-speed"></span></p>
+                    </div>   
+                </div>               
+            <!-- Main body for weather info -->
+            <!-- 5-Day Forecast -->
+                <div class="fiveDayContainer"></div>
+                    <div class="row">
+                        <h2>5 Day Forecast</h2>
+                        <div class="day1 col-sm-4"></div>
+                        <div class="day2 col-sm-4"></div>
+                        <div class="day3 col-sm-4"></div>
+                        <div class="day4 col-sm-4"></div>
+                        <div class="day5 col-sm-4"></div>  
+                    </div>
+                </div>
+            </div>    
+        </div>
+    </div>
     <!-- JavaScript Link -->
-    <link rel="stylesheet" href="assets/script.js"/>
+    <script rel="stylesheet" href="assets/script.js"></script>
+
+    <!-- JQuery Link -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+
 </body>
 </html>
